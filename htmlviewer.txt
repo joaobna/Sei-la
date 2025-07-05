@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculadora de Comissão</title>
+  <style>
+    body {
+      margin: 0;
+      background: #111;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #00ff88;
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+    input {
+      padding: 10px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      width: 200px;
+      text-align: center;
+    }
+    button {
+      background: #00ff88;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      color: #000;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #00cc66;
+    }
+    #resultado {
+      margin-top: 20px;
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #00ff88;
+    }
+  </style>
+</head>
+<body>
+  <h1>🧮 Calculadora de Comissão</h1>
+
+  <label for="valor">Valor da Venda (R$)</label>
+  <input type="number" id="valor" placeholder="Ex: 100.00">
+
+  <label for="percentual">Comissão (%)</label>
+  <input type="number" id="percentual" placeholder="Ex: 50">
+
+  <button onclick="calcularComissao()">Calcular Comissão</button>
+
+  <div id="resultado">Sua comissão aparecerá aqui.</div>
+
+  <script>
+    function calcularComissao() {
+      const valor = parseFloat(document.getElementById('valor').value);
+      const percentual = parseFloat(document.getElementById('percentual').value);
+      if (!valor || !percentual) {
+        document.getElementById('resultado').textContent = 'Preencha os campos corretamente.';
+        return;
+      }
+      const comissao = valor * (percentual / 100);
+      document.getElementById('resultado').textContent = `💸 Comissão: R$ ${comissao.toFixed(2)}`;
+    }
+  </script>
+</body>
+</html>
